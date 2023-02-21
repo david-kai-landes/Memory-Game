@@ -49,7 +49,15 @@ const cardArray = [
     img: "images/pizza.png",
   },
 ];
-
+//
 cardArray.sort(() => 0.5 - Math.random());
-
-console.log(cardArray);
+//
+const gridDisplay = document.querySelector("#grid");
+// console.log(cardArray);
+function createBoard() {
+  for (let i = 0; i < 10; i++) {
+    const card = document.createElement("img");
+    console.log(card, i);
+  }
+}
+createBoard();
