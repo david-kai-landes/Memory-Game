@@ -60,8 +60,14 @@ function createBoard() {
     const card = document.createElement("img");
     card.setAttribute("src", "images/blank.png");
     card.setAttribute("data-id", i);
-    // console.log(card, i);
+    card.addEventListener("click", flipCard);
     gridDisplay.appendChild(card);
+    // console.log(card, i);
   }
 }
 createBoard();
+//
+function flipCard() {
+  const cardId = this.getAttribute("data-id");
+  console.log("Clicked", cardId);
+}
