@@ -53,6 +53,8 @@ const cardArray = [
 cardArray.sort(() => 0.5 - Math.random());
 //
 const gridDisplay = document.querySelector("#grid");
+const resultDisplay = document.querySelector("#result");
+//
 let cardsChosen = [];
 let cardsChosenIds = [];
 const cardsWon = [];
@@ -68,6 +70,7 @@ function createBoard() {
     // console.log(card, i);
   }
 }
+
 createBoard();
 //
 function checkMatch() {
@@ -75,6 +78,8 @@ function checkMatch() {
   const optionOneId = cardsChosen[0];
   const optionTwoId = cardsChosen[1];
   if (optionOneId === optionTwoId) {
+    cards[optionOneId].setAttribute("src", "images/blank.png");
+    cards[optionTwoId].setAttribute("src", "images/blank.png");
     alert("You Have Clicked the Same Image!👏");
   }
   //console.log("Check For Math");
@@ -90,10 +95,14 @@ function checkMatch() {
     cards[optionTwoId].setAttribute("src", "images/blank.png");
     alert("Sorry Try Again");
   }
+  resultDisplay.textContent = cardsWon.length;
   cardsChosen = [];
   cardsChosenIds = [];
+
+  if (cardsWon.length == cardArray.length / 2) {
+    resultDisplay.textContent = "Congratulations You Found Them All!";
+  }
 }
-//
 //
 function flipCard() {
   const cardId = this.getAttribute("data-id");
