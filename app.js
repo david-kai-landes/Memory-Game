@@ -94,6 +94,7 @@ function checkMatch() {
   cardsChosenIds = [];
 }
 //
+//
 function flipCard() {
   const cardId = this.getAttribute("data-id");
   cardsChosen.push(cardArray[cardId].name);
